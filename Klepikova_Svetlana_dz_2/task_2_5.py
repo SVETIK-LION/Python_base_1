@@ -26,6 +26,7 @@ print(id(my_list))
 result_2 = sort_prices(my_list)
 # зафиксируйте здесь доказательство, что результат result_2 остался тем же объектом
 print(id(result_2))
+print('^ id не изменился - in place ^')
 print(f'Отсортированный по возрастанию исходный список: {result_2}')
 
 
@@ -38,6 +39,7 @@ def sort_price_adv(list_in: list) -> list:
 print(id(my_list))
 result_3 = sort_price_adv(my_list)
 print(id(result_3))
+print('^ id изменился - not in place ^')
 print(f'Отсортированный по убыванию новый список: {result_3}')
 
 
