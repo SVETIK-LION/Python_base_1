@@ -15,6 +15,6 @@ def convert_list_in_str(list_in: list) -> str:
     return str_out
 
 
-my_list = ['в', '0', 'часов', '17', 'минут', 'температура', '-1', 'воздуха', 'была', '+77', 'градусов']
+my_list = ['в', '15', 'часов', '25', 'минут', 'температура', 'воздуха', 'была', '-17', 'градусов']
 result = convert_list_in_str(my_list)
 print(result)
