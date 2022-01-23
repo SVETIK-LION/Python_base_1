@@ -1,4 +1,4 @@
-print(type(15 * 3))
-print(type(15 / 3))
-print(type(15 // 2))
-print(type(15 ** 2))
+print(type(15 * 3), '- целое число')
+print(type(15 / 3), '- число с плавающей точкой')
+print(type(15 // 2), '- целое число')
+print(type(15 ** 2), '- целое число')
