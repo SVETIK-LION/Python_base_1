@@ -2,27 +2,19 @@ def convert_list_in_str(list_in: list) -> str:
     """Обособляет каждое целое число кавычками, добавляя кавычку до и после элемента
         списка, являющегося числом, и дополняет нулём до двух целочисленных разрядов.
         Формирует из списка результирующую строковую переменную и возвращает."""
-    # пишите реализацию своей программы здесь
-    str_out = f'в '
+    result_list = []
+    for element in list_in:
+        if element[0] in ['+', '-'] or element.isdigit():
+            if element.isdigit():
+                result_list.append(f'"{element.zfill(2)}"')
+            else:
+                result_list.append(f'"{element[0]} {element[1:].zfill(2)}"')
+        else:
+            result_list.append(element)
+    str_out = ' '.join((result_list))
     return str_out
 
 
-my_list = ['в', '5', 'часов', '17', 'минут', 'температура', 'воздуха', 'была', '+5', 'градусов']
+my_list = ['в', '0', 'часов', '17', 'минут', 'температура', '-1', 'воздуха', 'была', '+77', 'градусов']
 result = convert_list_in_str(my_list)
 print(result)
-
-
-
-
-
-
-
-name = 'Светик'
-month = 1
-year = 2022
-money = 4548854.54313132
-
-mes_2 = f'{name:^15}! Сегодня {month:02d} месяц {year} года.'
-mes_3 = f'{name:>15}! На счете {money:.2f}'
-print(mes_2)
-print(mes_3)
