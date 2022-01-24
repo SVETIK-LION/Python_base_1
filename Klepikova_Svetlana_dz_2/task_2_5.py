@@ -5,7 +5,7 @@ def transfer_list_in_str(list_in: list) -> str:
     """Преобразует каждый элемент списка (вещественное число) в строку вида '<r> руб <kk> коп' и
         формирует из них единую строковую переменную разделяя значения запятой."""
     for i in range(len(list_in)):
-        list_in[i] = f'{int(list_in[i])} руб {(list_in[i] % 1) * 100:.0f} коп'
+        list_in[i] = f'{int(list_in[i]):02} руб {int((list_in[i] * 100) % 100):02} коп'
     return list_in
 
 
