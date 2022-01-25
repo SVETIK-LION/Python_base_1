@@ -11,23 +11,17 @@ def num_translate_adv(value: str) -> str:
         'eight': 'восемь',
         'nine': 'девять',
         'ten': 'десять',
-        'One': 'Один',
-        'Two': 'Два',
-        'Three': 'Три',
-        'Four': 'Четыре',
-        'Five': 'Пять',
-        'Six': 'Шесть',
-        'Seven': 'Семь',
-        'Eight': 'Восемь',
-        'Nine': 'Девять',
-        'Ten': 'Десять'
     }
     for key in translate:
-        if value == key:
-            str_out = translate[key]
+        if value.istitle():
+            if value == key.capitalize():
+                str_out = translate[key].capitalize()
+        else:
+            if value == key:
+                str_out = translate[key].lower()
     return str_out
 
 
-print(num_translate_adv("Three"))
+print(num_translate_adv("three"))
 print(num_translate_adv("Four"))
-print(num_translate_adv("five"))
+print(num_translate_adv("Five"))
