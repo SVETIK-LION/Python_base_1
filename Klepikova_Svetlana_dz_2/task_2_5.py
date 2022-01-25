@@ -12,7 +12,7 @@ def transfer_list_in_str(list_in: list) -> str:
 my_list = [round(uniform(10, 100), 2) for _ in range(1, 16)]  # автоматическая генерация случайных 15 чисел
 print(f'Исходный список: {my_list}')
 result_1 = transfer_list_in_str(my_list)
-print(result_1)
+print(f'Преобразованный список: {result_1}')
 
 
 def sort_prices(list_in: list) -> list:
@@ -27,7 +27,7 @@ result_2 = sort_prices(my_list)
 # зафиксируйте здесь доказательство, что результат result_2 остался тем же объектом
 print(id(result_2))
 print('^ id не изменился - in place ^')
-print(f'Отсортированный по возрастанию исходный список: {result_2}')
+print(f'Отсортированный по возрастанию исходный преобразованный список: {result_2}')
 
 
 def sort_price_adv(list_in: list) -> list:

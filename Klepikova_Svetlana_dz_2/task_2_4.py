@@ -1,12 +1,9 @@
 def convert_name_extract(list_in: list) -> list:
     """Извлекает имена из элементов и формирует список приветствий."""
-    res = []
     for i in range(len(list_in)):
         list_in[i] = list_in[i].title().split()
-        res.append(list_in[i][-1])
-    for j in range(len(res)):
-        res[j] = f'Привет, {res[j]}!'
-    list_out = res
+        list_in[i] = f"Привет, {list_in[i][-1]}!"
+    list_out = list_in
     return list_out
 
 
