@@ -12,13 +12,10 @@ def num_translate_adv(value: str) -> str:
         'nine': 'девять',
         'ten': 'десять',
     }
-    for key in translate:
-        if value == key.capitalize():
-            str_out = translate.setdefault(key).capitalize()
-        else:
-            if value == key:
-                str_out = translate.setdefault(key)
-    return str_out
+    if value.istitle():
+        return translate.get(value.lower()).capitalize()
+    else:
+        return translate.get(value)
 
 
 print(num_translate_adv("Three"))
