@@ -23,3 +23,4 @@ def sorting_by_keys(my_dict):
 
 
 print(sorting_by_keys(my_dict))
+#TODO разобраться, почему выводит None
