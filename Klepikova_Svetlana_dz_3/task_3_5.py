@@ -23,6 +23,10 @@ print(get_jokes(10))
 def get_jokes_adv(count: int, repeat=True) -> list:
     """Возвращает список шуток в количестве count"""
     list_out = []
+    if repeat == False:
+        min_count = min(len(nouns), len(adverbs), len(adjectives))
+        if count > min_count:
+            count = min_count
     for _ in range(count):
         word_1, word_2, word_3 = choice(nouns), choice(adverbs), choice(adjectives)
         if repeat == False:
@@ -34,4 +38,4 @@ def get_jokes_adv(count: int, repeat=True) -> list:
     return list_out
 
 
-print(get_jokes_adv(5, repeat=False))
+print(get_jokes_adv(count=10, repeat=False))
