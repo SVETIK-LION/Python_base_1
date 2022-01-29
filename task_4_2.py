@@ -3,8 +3,9 @@ import requests
 
 def currency_rates(code: str) -> float:
     """возвращает курс валюты `code` по отношению к рублю"""
-    # ваша реализация здесь
-    result_value = 1.11  ## здесь должно оказаться результирующее значение float
+    payload = {'code: value'}
+    r = requests.get('http://www.cbr.ru/scripts/XML_daily.asp')
+    result_value = r.url  ## здесь должно оказаться результирующее значение float
     return result_value
 
 
