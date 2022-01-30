@@ -1,13 +1,28 @@
 import requests
+from decimal import *
 
 
-def currency_rates(code: str) -> float:
+def currency_rates(code: str) -> Decimal:
     """возвращает курс валюты `code` по отношению к рублю"""
-    payload = {'code: value'}
-    r = requests.get('http://www.cbr.ru/scripts/XML_daily.asp')
-    result_value = r.url  ## здесь должно оказаться результирующее значение float
+    response = requests.get('http://www.cbr.ru/scripts/XML_daily.asp')
+    text_list = response.text.split('Valute')  # Делаем список, характеристик нужной валюты
+    for val in text_list:
+        if code in val:
+            val_list = val.split('<')  # Разделям этот список на элементы-характеристики валюты
+    for i in range(len(val_list)):
+        if 'Value' in val_list[i]:
+            rate = Decimal(float(
+                f'{val_list[i][6:8]}.{val_list[i][9:]}'))  # Убираем запятую, срезами добавляем значения валюты, конвертим в decimal
+            break
+    for j in range(len(val_list)):
+        if 'Nominal' in val_list[j]:
+            nominal = Decimal(float(val_list[j][8:])) # Вычленяем номинал
+            break
+    result_value = f'{rate / nominal} - точный курс валюты {code} по отношению к рублю' # Находим значение
     return result_value
 
 
 print(currency_rates("USD"))
-print(currency_rates("noname"))
+print(currency_rates("AZN"))
+print(currency_rates("AMD"))
+print(currency_rates("HUF"))
