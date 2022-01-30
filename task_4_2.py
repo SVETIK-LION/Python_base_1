@@ -11,12 +11,12 @@ def currency_rates(code: str) -> Decimal:
             val_list = val.split('<')  # Разделям список валют на элементы-характеристики нужной валюты
     for i in range(len(val_list)):
         if 'Value' in val_list[i]:
-            rate = Decimal(float(
-                f'{val_list[i][6:8]}.{val_list[i][9:]}'))  # Убираем запятую, срезами добавляем значения валюты, конвертим в decimal
+            rate = Decimal(
+                f'{val_list[i][6:8]}.{val_list[i][9:]}')  # Убираем запятую, срезами добавляем значения валюты, конвертим в decimal
             break
     for j in range(len(val_list)):
         if 'Nominal' in val_list[j]:
-            nominal = Decimal(float(val_list[j][8:])) # Вычленяем номинал
+            nominal = Decimal(val_list[j][8:]) # Вычленяем номинал
             break
     result_value = f'{rate / nominal} - точный курс валюты {code.upper()} по отношению к рублю' # Находим значение
     return result_value
