@@ -5,10 +5,10 @@ from decimal import *
 def currency_rates(code: str) -> Decimal:
     """возвращает курс валюты `code` по отношению к рублю"""
     response = requests.get('http://www.cbr.ru/scripts/XML_daily.asp')
-    text_list = response.text.split('Valute')  # Делаем список, характеристик нужной валюты
+    text_list = response.text.split('Valute')  # Разделяем текст по валютам
     for val in text_list:
         if code in val:
-            val_list = val.split('<')  # Разделям этот список на элементы-характеристики валюты
+            val_list = val.split('<')  # Разделям список валют на элементы-характеристики нужной валюты
     for i in range(len(val_list)):
         if 'Value' in val_list[i]:
             rate = Decimal(float(
@@ -26,3 +26,4 @@ print(currency_rates("USD"))
 print(currency_rates("AZN"))
 print(currency_rates("AMD"))
 print(currency_rates("HUF"))
+print(currency_rates("noname"))
