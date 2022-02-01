@@ -16,8 +16,8 @@ def currency_rates(code: str) -> Decimal:
             return f'{val_out} точный курс валюты {code.upper()} по отношению к рублю'
 
 
-print(currency_rates("USD"))
+print(currency_rates("usd"))
 print(currency_rates("AZN"))
 print(currency_rates("Amd"))
-print(currency_rates("HUF"))
+print(currency_rates("HuF"))
 print(currency_rates("noname"))
