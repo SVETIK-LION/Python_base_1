@@ -13,7 +13,7 @@ def currency_rates(code: str) -> Decimal:
             # То же самое, только для номинала
             nom = Decimal(value.replace('</Nominal', '<Nominal>').split('<Nominal>')[-2])
             val_out = val/nom # Делим курс на номинал
-            return f'{val_out} точный курс валюты {code.upper()} по отношению к рублю'
+            return f'{val_out} - точный курс валюты {code.upper()} по отношению к рублю'
 
 
 print(currency_rates("usd"))
