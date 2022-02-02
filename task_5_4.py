@@ -1,5 +1,5 @@
 def get_numbers(src: list):
-    res = (num for num in len(src) if src[num] > src[num - 1])
+    res = (src[i] for i in range(1, len(src)) if src[i] > src[i - 1])
     return res
 
 

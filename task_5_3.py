@@ -4,7 +4,7 @@ klasses = ['9А', '7В', '9Б', '9В', '8Б', '10А', '10Б', '9А']
 
 def check_gen(tutors: list, klasses: list):
     di = dict(zip(tutors, klasses))
-    result = {key: val for tutors, klasses in di.items()}
+    result = (key: val for tutors, klasses in di.items())
     return result
 
 
