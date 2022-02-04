@@ -8,4 +8,4 @@ generator = odd_nums(n)
 print(type(generator)) # Посмотрела, что получился именно генератор
 for _ in range(1, n + 1, 2):
     print(next(generator))
-next(generator)  # если раскомментировать, то должно падать в traceback по StopIteration
+#next(generator)  # если раскомментировать, то должно падать в traceback по StopIteration
