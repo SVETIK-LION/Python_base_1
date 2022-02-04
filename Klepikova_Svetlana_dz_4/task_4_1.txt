@@ -1,0 +1,50 @@
+1. Установить самую свежую версию pillow
+user@Treistan-MacBook-Air ~ % pip install pillow
+Collecting pillow
+  Downloading Pillow-9.0.0-cp310-cp310-macosx_11_0_arm64.whl (2.7 MB)
+     |████████████████████████████████| 2.7 MB 933 kB/s
+Installing collected packages: pillow
+Successfully installed pillow-9.0.0
+user@Treistan-MacBook-Air ~ % pip freeze
+certifi==2021.10.8
+charset-normalizer==2.0.10
+idna==3.3
+Pillow==9.0.0
+requests==2.27.1
+urllib3==1.26.8
+user@Treistan-MacBook-Air Example % pip freeze
+certifi==2021.10.8
+charset-normalizer==2.0.10
+idna==3.3
+Pillow==9.0.0
+requests==2.27.1
+urllib3==1.26.8
+
+2. Создать и активировать виртуальное окружение, убедиться, что в нем нет пакета pillow
+user@Treistan-MacBook-Air Example % python3 -m venv venv svetik_virt
+user@Treistan-MacBook-Air Example % ls -a
+.		..		svetik_virt	venv
+user@Treistan-MacBook-Air Example % cd svetik_virt
+user@Treistan-MacBook-Air svetik_virt % ls -a
+.		..		bin		include		lib		pyvenv.cfg
+user@Treistan-MacBook-Air svetik_virt % cd ..
+user@Treistan-MacBook-Air Example % source svetik_virt/bin/activate
+(svetik_virt) user@Treistan-MacBook-Air Example % pip freeze
+(svetik_virt) user@Treistan-MacBook-Air Example %
+
+3. Установить в виртуальное окружение pillow версии 7.1.1 (или другой, отличной от самой свежей)
+(svetik_virt) user@Treistan-MacBook-Air Example % pip install pillow==8.4.0
+Collecting pillow==8.4.0
+  Downloading Pillow-8.4.0-cp310-cp310-macosx_11_0_arm64.whl (2.8 MB)
+     |████████████████████████████████| 2.8 MB 955 kB/s
+Installing collected packages: pillow
+Successfully installed pillow-8.4.0
+WARNING: You are using pip version 21.2.4; however, version 21.3.1 is available.
+You should consider upgrading via the '/Users/user/Example/svetik_virt/bin/python3 -m pip install --upgrade pip' command.
+(svetik_virt) user@Treistan-MacBook-Air Example % pip freeze
+Pillow==8.4.0
+(svetik_virt) user@Treistan-MacBook-Air Example %
+
+4. Деактивировать виртуальное окружение
+(svetik_virt) user@Treistan-MacBook-Air Example % deactivate
+user@Treistan-MacBook-Air Example %
