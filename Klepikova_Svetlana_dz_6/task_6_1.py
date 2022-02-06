@@ -6,7 +6,7 @@ def get_parse_attrs(line: str) -> tuple:
     list_all = list()
     list_all.append(line)
     for i in range(len(list_all)):
-        tuple_line = (list_all[i][0], list_all[i][5], list_all[i][6])
+        tuple_line = (list_all[i][0], list_all[i][5].replace('"', ''), list_all[i][6])
     return tuple_line # верните кортеж значений <remote_addr>, <request_type>, <requested_resource>
 
 
