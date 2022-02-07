@@ -14,6 +14,6 @@ list_out = list()
 with open('nginx_logs.txt', 'r', encoding='utf-8') as fr:
     for val in fr.readlines():
         line = val.split(' ')
-        list_out.append(get_parse_attrs(line))# передавайте данные в функцию и наполняйте список list_out кортежами
+        list_out.append(get_parse_attrs(line)) # передавайте данные в функцию и наполняйте список list_out кортежами
 
 pprint(list_out)
