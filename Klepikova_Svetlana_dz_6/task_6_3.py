@@ -9,7 +9,7 @@ def prepare_dataset(path_users_file: str, path_hobby_file: str) -> dict:
         ключ — ФИО, значение — данные о хобби (список строковых переменных)
     :param path_users_file: путь до файла, содержащий ФИО пользователей, разделенных запятой по строке
     :param path_hobby_file: путь до файла, содержащий хобби, разделенные запятой по строке
-    :return: Dict(str: Union[List[str]|None])
+    :return: Dict(str(key): str(val))
     """
     list_users = []
     list_hobby = []
