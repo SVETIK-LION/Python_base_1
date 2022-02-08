@@ -2,4 +2,7 @@ import sys
 
 
 with open('bakery.csv', 'r', encoding='utf-8') as fw:
-    print(*fw.readlines())
+    if sys.argv[1] == '':
+        print(*fw.readlines())
+    elif sys.argv[1] == :
+        print(*fw.readlines())

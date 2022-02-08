@@ -18,11 +18,10 @@ def prepare_dataset(path_users_file: str, path_hobby_file: str) -> dict:
             key = line_u.strip().replace(',', '')
             list_users.append(key)
     with open('hobby.csv', 'r', encoding='utf-8') as hobby_file:
-        for line_h in hobby_file:
-            val = line_h.strip()
-            list_hobby.append(val)
+        for line_h in hobby_file.readlines():
+            list_hobby.append(line_h.strip())
     if len(list_users) < len(list_hobby):
-        return 1
+        return sys.exit(1)
     else:
         return {key: val for key, val in zip_longest(list_users, list_hobby)} # верните словарь, либо завершите исполнение программы кодом 1
 
