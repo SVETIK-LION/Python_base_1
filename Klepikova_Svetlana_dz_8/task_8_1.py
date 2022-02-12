@@ -17,7 +17,7 @@ def email_parse(email: str) -> dict:
             return print(di)
         else:
             raise ValueError
-    except ValueError:
+    except ValueError as err:
         print(f'Неверный e-mail')
 
 if __name__ == '__main__':
@@ -25,5 +25,6 @@ if __name__ == '__main__':
     email_parse('someone@geekbrainsru')
     email_parse('SVETLANA.LVOVSKAYA@gmail.com')
     email_parse('Svetik-Lion@po4ta.ru')
+    email_parse('wrong.e-mail@@mail..com')
     email_parse('po4ta01234@n_7.com')
 
