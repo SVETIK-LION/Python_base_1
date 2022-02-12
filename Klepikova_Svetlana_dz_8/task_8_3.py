@@ -1,6 +1,12 @@
+from functools import wraps
+
+
 def type_logger(func):
-    def typer(num):
-        return f'{num}: {type(num)}'
+    @wraps(func)
+    def typer(*args, **kwargs):
+        num = tuple(args or kwargs)
+        for i in num:
+            print(f'{calc_cube.__name__}({i}: {type(i)})')
     return typer
 
 
@@ -9,4 +15,4 @@ def calc_cube(x):
    return x ** 3
 
 
-print(calc_cube(5))
+print(calc_cube(5.5, 7, 'asr'))
