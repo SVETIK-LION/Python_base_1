@@ -10,7 +10,3 @@ def calc_cube(x):
 
 
 print(calc_cube(5))
-
-
-# $ a = calc_cube(5)
-# 5: <class 'int'>
