@@ -12,7 +12,7 @@ def type_logger(func):
 
 @type_logger
 def calc_cube(x):
-   return x ** 3
+    return x ** 3
 
 
 print(calc_cube(5.5, 7, 'asr'))
