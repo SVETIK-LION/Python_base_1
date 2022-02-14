@@ -1,29 +1,28 @@
 from functools import wraps
 
 
-def val_checker(num=4):
-    # @wraps(func)
-    def check_ext(func):
-        def check_int(*args, **kwargs):
-            try:
-                if num > 0:
-                    return calc_cube(num)
-                else:
-                    # if num <= 0 or str(num).isdigit() == False:
-                    raise ValueError(f'Wrong val: {num}')
-            except ValueError as err:
-                return err
-        return check_int
-    return check_ext
+def val_checker(check):
+    def _decor(func):
+        @wraps(func)
+        def wrapper(x):
+            if check(x) == True:
+                return func(x)
+            else:
+                raise ValueError(f'wrong val: {x}')
+        return wrapper
+    return _decor
 
 
-
-@val_checker(num=10)  # не забудьте про аргумент-функцию
+check = lambda x: x > 0
+@val_checker(check)  # не забудьте про аргумент-функцию
 def calc_cube(x):
     """Возведение числа в третью степень"""
     return x ** 3
 
 
 if __name__ == '__main__':
-    print(calc_cube(5))
-    print(calc_cube('ss'))
+    try:
+        print(calc_cube(5))
+        print(calc_cube('ss'))
+    except (ValueError, TypeError) as err:
+        print(err)
