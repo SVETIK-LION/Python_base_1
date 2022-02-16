@@ -10,7 +10,7 @@ class TrafficLight:
         for key, val in colors.items():
             TrafficLight.__color = val
             for sec in range(1, key + 1):
-                sys.stdout.write(f'\r{TrafficLight.__color} {sec} сек')
+                print(f'\r{TrafficLight.__color} {sec} сек', end='')
                 time.sleep(1)
             print()
 
