@@ -1,29 +1,19 @@
-import time
+import time, sys
 
 
 class TrafficLight:
     __color: str = 'some_color'
 
 
-    def running(self, timing = 4):
-        if timing == 4:
-            TrafficLight.__color = 'red'
-            print(f'{TrafficLight.__color} {timing} сек')
-            time.sleep(4)
-            timing -= 2
-
-        if timing == 2:
-            TrafficLight.__color = 'yellow'
-            print(f'{TrafficLight.__color} {timing} сек')
-            time.sleep(2)
-            timing += 1
-
-
-        if timing == 3:
-            TrafficLight.__color = 'green'
-            print(f'{TrafficLight.__color} {timing} сек')
-            time.sleep(3)
-            timing -= 1
+    def running(self):
+        colors = {4: 'red', 2: 'yellow', 3: 'green'}
+        for key, val in colors.items():
+            TrafficLight.__color = val
+            for sec in range(0, key + 1):
+                sys.stdout.write('\r')
+                sys.stdout.write(f'{TrafficLight.__color} {sec} сек')
+                time.sleep(1)
+            print()
 
 
 if __name__ == '__main__':
