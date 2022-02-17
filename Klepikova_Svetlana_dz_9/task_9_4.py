@@ -18,14 +18,16 @@ class Car:
         :return: в stdout сообщение по формату
             'Машина <название марки машины> повысила скорость на 15: <текущая скорость машины>'
         """
-        pass  # Ваш код здесь
+        self.speed += 15
+        print(f'Машина {self.name} повысила скорость на 15: {self.speed}')
 
     def stop(self) -> None:
         """
         При вызове метода скорость становится равной '0'
         :return: в stdout сообщение по формату '<название марки машины>: остановилась'
         """
-        pass  # Ваш код здесь
+        self.speed = 0
+        print(f'{self.name}: остановилась')
 
     def turn(self, direction: str) -> None:
         """
@@ -35,7 +37,14 @@ class Car:
         :return: в stdout сообщение по формату
             '<название марки машины>: движется <direction>'
         """
-        pass  # Ваш код здесь
+        self.direction = direction
+        try:
+            if direction in ('направо', 'налево', 'прямо', 'назад'):
+                print(f'{self.name}: движется {direction}')
+            else:
+                raise ValueError(f'ValueError: нераспознанное направление движения')
+        except ValueError as err:
+            print(err)
 
     def show_speed(self) -> None:
         """
@@ -43,10 +52,32 @@ class Car:
         :return: в stdout выводит сообщение формата
             '<название марки машины>: текущая скорость <значение текущей скорости> км/час'
         """
-        pass  # Ваш код здесь
-
+        if police_car.is_police == True:
+            print(f'{self.name}: текущая скорость {self.speed} км/ч')
+            print('Вруби мигалку и забудь про скорость!')
+        else:
+            print(f'{self.name}: текущая скорость {self.speed} км/ч')
 
 # определите классы TownCar, WorkCar, SportCar, PoliceCar согласно условия задания
+class TownCar(Car):
+    def show_speed(self) -> None:
+        if self.speed > 60:
+            print('Alarm!!! Speed!!!')
+        else:
+            print(f'{self.name}: текущая скорость {self.speed} км/ч')
+
+class WorkCar(Car):
+    def show_speed(self) -> None:
+        if self.speed > 40:
+            print('Alarm!!! Speed!!!')
+        else:
+            print(f'{self.name}: текущая скорость {self.speed} км/ч')
+
+class SportCar(Car):
+    is_police: bool = False
+
+class PoliceCar(Car):
+    is_police: bool = True
 
 
 if __name__ == '__main__':
