@@ -4,18 +4,23 @@ class Stationery:
         self.title = title
 
     def draw(self) -> None:
-        print('Запуск отрисовки')
+        if self.title == 'Карандаш':
+            print('Запуск отрисовки')
+            pencil.special()
 
 
 # определите классы ниже согласно условий задания
 class Pen(Stationery):
-    print(f'{Pen.__name__}: приступил к отрисовке объекта {self.title} ')
-
-class Pencil(Stationery):
-    print(f'{Pencil.__name__}: приступил к отрисовке объекта {self.title} ')
+    def draw(self) -> None:
+        print(f'{__class__.__name__}: приступил к отрисовке объекта "{self.title}"')
 
 class Handle(Stationery):
-    print(f'{Handle.__name__}: приступил к отрисовке объекта {self.title} ')
+    def draw(self) -> None:
+        print(f'{__class__.__name__}: приступил к отрисовке объекта "{self.title}"')
+
+class Pencil(Stationery):
+    def special (self) -> None:
+        print(f'{__class__.__name__}: приступил к отрисовке объекта "{self.title}"')
 
 
 if __name__ == '__main__':
