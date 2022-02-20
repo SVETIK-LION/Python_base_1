@@ -9,10 +9,8 @@ class TrafficLight:
         colors = {4: 'red', 2: 'yellow', 3: 'green'}
         for key, val in colors.items():
             TrafficLight.__color = val
-            for sec in range(1, key + 1):
-                print(f'\r{TrafficLight.__color} {sec} сек', end='')
-                time.sleep(1)
-            print()
+            print(f'{TrafficLight.__color} {key} сек', end='\n')
+            time.sleep(key)
 
 
 if __name__ == '__main__':
