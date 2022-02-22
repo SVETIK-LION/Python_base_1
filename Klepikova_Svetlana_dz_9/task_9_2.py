@@ -18,7 +18,7 @@ class Road:
         :param mass_m_2: масса в кг квадратного метра дороги высотой 1 см
         :return: int значение тонн, дробная часть если есть НЕ учитывается
         """
-        res_mass = int(self._length * self._width * hight * mass_m_2/1000)
+        res_mass = self._length * self._width * mass_m_2 * hight // 1000
         return res_mass
 
 if __name__ == '__main__':
