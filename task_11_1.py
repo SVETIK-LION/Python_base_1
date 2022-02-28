@@ -13,7 +13,7 @@ class Date:
 
 
     @staticmethod
-    def valid_date(s):
+    def valid_date(s: str):
         day, month, year = s.split(' ')
         day, month = int(day), int(month)
         if day < 1 or day > 31:
