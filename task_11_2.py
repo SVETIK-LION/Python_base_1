@@ -1,16 +1,15 @@
 class ZeroError(Exception):
-    default_message: str = 'Делить на ноль нельзя, запустите программу и введите другой делитель'
+    def __init__(self, divident, divider):
+        self.divident = divident
+        self.divider = divider
 
-    def __str__(self):
-        return self.default_message
+    @staticmethod
+    def nums(divident, divider):
+        try:
+            return (divident / divider)
+        except:
+            return f'Делить на ноль нельзя'
 
 
-dividend = int(input('Введите делимое: '))
-divider = int(input('Введите делитель (НЕ равный 0): '))
-try:
-    if divider == 0:
-        raise ZeroError()
-    result = dividend/divider
-    print(result)
-except ZeroError as err:
-    print(err)
+print(ZeroError.nums(4, 0))
+print(ZeroError.nums(100, 5))
