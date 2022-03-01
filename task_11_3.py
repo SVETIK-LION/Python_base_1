@@ -1,5 +1,5 @@
 class DigitError(ValueError):
-    pass
+    default_message = 'это не число, введите другое значение или "stop"'
 
 
 numbers = []
@@ -12,6 +12,6 @@ while True:
             raise DigitError(num)
         numbers.append(int(num))
     except DigitError as err:
-        print(f'{err} - это не число, введите другое значение или "stop"')
+        print(f'{err} - {DigitError.default_message}')
 
 print(numbers)
