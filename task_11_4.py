@@ -1,106 +1,60 @@
-class Storage:
+class Warehouse:
     def __init__(self):
-        self.storage = []
-
-    # def add_to_storage(self):
+        self.dict = {'Принтеры': [], 'Сканеры': [], 'Копиры': []}
 
 
+class OfficeEquipment:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
 
-class Equipment:
-    def __init__(self, name, price, quantity, *args):
-        self.our_equipment = set()
-        self.name = name
-        self.price = price
-        self.quantity = quantity
-        self.equipment = dict()
-    # def __str__(self):
-    #     return f'{self.name} цена {self.price} количество {self.quantity}'
-
-    def order(self):
-        """Формируем перечень техники для заказа"""
-        try:
-            eq_name = input(f'Введите название: ')
-            eq_price = int(input(f'Введите цену за 1 ед: '))
-            eq_quantity = int(input(f'Введите количество: '))
-            eq = {'Модель устройства': eq_name, 'Цена за 1 ед': eq_price, 'Количество': eq_quantity}
-            self.equipment.update(eq)
-            return f'Заказана единица техники - {self.equipment}'
-        except:
-            return f'Ввели неверные данные'
+    def __str__(self):
+        return f'Бренд: {self.brand}, модель: {self.model}, год выпуска: {self.year}'
 
 
-class Printer(Equipment):
-    pass
-
-
-class Scanner(Equipment):
-    pass
-
-
-class Copier(Equipment):
-    pass
-
-
-eq_1 = Printer('hp', 2000, 5, 10)
-eq_2 = Scanner('Canon', 1200, 5, 10)
-eq_3 = Copier('Xerox', 1500, 1, 15)
-print(eq_1.order())
-print(eq_2.order())
-print(eq_3.order())
-print(eq_1.order())
-print(eq_1.order())
+    def adding(self, quantity):
+        """Добавить технику на склад"""
 
 
 
 
 
+class Printer(OfficeEquipment):
+    def __init__(self, brand, model, year, print_speed):
+        super().__init__(brand, model, year)
+        self.print_speed = print_speed
+
+    def action(self):
+        return f'Печатает'
 
 
-#
-#
-#
-# class Office:
-#     def __init__(self):
-#         self.office: set = set()
-#
-#
-#     def add_to_office(self, *args):
-#         """Доставить технику в офис"""
-#         count = 0
-#         for equipment in args:
-#             if not isinstance(equipment, Equipment):
-#                 print('Мы поставляем в офис только технику')
-#                 continue
-#             self.office.add(equipment)
-#             count += 1
-#         print(f'Достаивли технику в офис в количестве: {count}')
-#
-#     def __iadd__(self, other):
-#         if not isinstance(other, Equipment):
-#             raise TypeError('Доставляем только технику')
-#         self.office.add(other)
-#         print(f'В офис доставлена новая техника')
-#
-#
-#
-# class Equipment:
-#     def __init__(self, size: float, warehouse: set):
-#         self.size = size
-#         self.warehouse = warehouse
-#         self.warehouse.add(self)
-#         print(f'Новая единица орг.техники размера {self.size} куплена в офис')
-#         print(office)
-#
-#     def take_out(self):
-#         """Увезти технику из офиса"""
-#         self.warehouse.discard(self)
-#         print('Увезли 1 единицу техники')
-#
-#
-# thing_1 = Equipment(2, office)
-#
-# # class Printer(Equipment):
-# #
-# # class Scanner(Equipment):
-# #
-# # class Copier(Equipment)
+class Scanner(OfficeEquipment):
+    def __init__(self, brand, model, year, scan_quality):
+        super().__init__(brand, model, year)
+        self.scan_quality = scan_quality
+
+    def action(self):
+        return f'Сканирует'
+
+
+class Xerox(OfficeEquipment):
+    def __init__(self, brand, model, year, copy_speed):
+        super().__init__(brand, model, year)
+        self.copy_speed = copy_speed
+
+    def action(self):
+        return f'Копирует'
+
+
+eq_1 = Printer('hp', 2000, 2014, 10)
+eq_2 = Scanner('Canon', 1200, 2020, 10)
+eq_3 = Xerox('Xerox', 1500, 2019, 15)
+print(eq_1)
+print(eq_1.action())
+print()
+print(eq_2)
+print(eq_2.action())
+print()
+print(eq_3)
+print(eq_3.action())
