@@ -10,8 +10,12 @@ class OfficeEquipment:
         self.model = model
         self.year = year
 
+
     def __str__(self):
-        return f'Бренд: {self.brand}, модель: {self.model}, год выпуска: {self.year}'
+        if not isinstance(self.model, int) or not isinstance(self.year, int):
+            print('Не числовое значение')
+        else:
+            return f'Бренд: {self.brand}, модель: {self.model}, год выпуска: {self.year}'
 
 
     def adding(self):
@@ -43,7 +47,10 @@ class Printer(OfficeEquipment):
         super().__init__(brand, model, year)
         self.print_speed = print_speed
     def __str__(self):
-        return f'Бренд: {self.brand}, модель: {self.model}, год выпуска: {self.year}, скорость печати: {self.print_speed}'
+        if not isinstance(self.model, int) or not isinstance(self.year, int) or not isinstance(self.print_speed, int):
+            return f'{self.model} или {self.year}, или {self.print_speed} - не числовое значение'
+        else:
+            return f'Бренд: {self.brand}, модель: {self.model}, год выпуска: {self.year}, скорость печати: {self.print_speed}'
 
     def action(self):
         return f'Печатает'
@@ -75,7 +82,7 @@ class Copier(OfficeEquipment):
         return f'Копирует'
 
 
-eq_1 = Printer('hp', 2000, 2014, 10)
+eq_1 = Printer('hp', '2000', 2014, 10)
 eq_2 = Scanner('Canon', 1200, 2020, 10)
 eq_3 = Copier('Xerox', 1500, 2019, 15)
 eq_4 = Copier('Marusya', 4939, 2022, 25)
